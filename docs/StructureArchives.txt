@@ -9,5 +9,31 @@
             "category": "class",
             "title": "Omen"
         }
+    ],
+
+    "PostCategories": [
+        {
+            "id": 0,
+            "title": "Introduction"
+        }, {
+            "id": 1,
+            "title": "History"
+        }
+    ],
+
+    "Posts": [
+        {
+            "id": 0,
+            "postCategoryId": 0,
+            "position": 0,
+            "text": "Haven is a bunker...",
+            "hiddenFromPlayers": false
+        }, {
+            "id": 1,
+            "postCategoryId": 0,
+            "position": 1,
+            "text": "The limited tickets to this...",
+            "hiddenFromPlayers": true
+        }
     ]
 }
