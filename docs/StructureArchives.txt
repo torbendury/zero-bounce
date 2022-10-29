@@ -1,0 +1,13 @@
+{
+    "archives": [
+        {
+            "id": 0,
+            "category": "place",
+            "title": "Haven"
+            }, {
+            "id": 1,
+            "category": "class",
+            "title": "Omen"
+        }
+    ]
+}
