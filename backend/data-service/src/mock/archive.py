@@ -8,13 +8,17 @@ mock_classes = [{"id": 0, "name": "berserk"}, {"id": 1, "name": "omen"}]
 
 mock_factions = [{"id": 0, "name": "raven"}, {"id": 1, "name": "daemons"}]
 
-mock_vehicles = []
+mock_vehicles = [
+    {"id": 0, "name": "rover"},
+    {"id": 1, "name": "helicopter"},
+    {"id": 2, "name": "horse"},
+]
 
-mock_monsters = []
+mock_monsters = [{"id": 0, "name": "crawler"}]
 
-mock_events = []
+mock_events = [{"id": 0, "name": "cosmic intervention"}]
 
-mock_weapons = []
+mock_weapons = [{"id": 0, "name": "harkon-a12"}, {"id": 1, "name": "fork"}]
 
 
 mock_categories = [
