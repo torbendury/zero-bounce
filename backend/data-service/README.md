@@ -67,12 +67,13 @@ The source code is structured as following:
 ```bash
 .
 ├── README.md # the one you are reading
-└── src
-    ├── __init__.py           # declaring the code below as a callable module
-    ├── main.py               # the main FastAPI module being called
-    ├── mock                  # a directory containing mock data which can also be imported like a python module
-    ├── requirements.txt      # pip packages which can be installed via `pip install -r requirements.txt`
-    ├── routers               # different API 'routers' - read more on https://fastapi.tiangolo.com/tutorial/bigger-applications/#apirouter
-    ├── test-requirements.txt # pip packages required for running tests
-    ├── test_main.py          # unit tests
+├── src
+|   ├── __init__.py       # declaring the code below as a callable module
+|   ├── main.py           # the main FastAPI module being called
+|   ├── mock              # a directory containing mock data which can also be imported like a python module
+|   ├── routers           # different API 'routers' - read more on https://fastapi.tiangolo.com/tutorial/bigger-applications/#apirouter
+|   └── test_main.py      # unit tests
+├── Dockerfile            # build file for building a docker container
+├── requirements.txt      # pip packages which can be installed via `pip install -r requirements.txt`
+└── test-requirements.txt # pip packages required for running tests
 ```
