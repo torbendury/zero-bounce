@@ -60,6 +60,14 @@ To install testing dependencies and run tests:
   python -m pytest ./
 ```
 
+## Build
+
+The application ships as a Docker container. In the base directory of the application, `backend/data-service/`, run:
+
+```bash
+  docker build -t zero-bounce/data-service:dev ./
+```
+
 ## Directory structure
 
 The source code is structured as following:
