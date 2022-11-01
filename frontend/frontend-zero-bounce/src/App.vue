@@ -5,13 +5,7 @@ import Sidebar from "./components/Sidebar.vue"
 
 <template>
   <div class="app">
-    <Sidebar />
-
-    <!-- <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-    </nav> -->
-    <RouterView />
+    <Sidebar /><RouterView />
   </div>
 </template>
 
@@ -37,6 +31,9 @@ import Sidebar from "./components/Sidebar.vue"
 
 body {
   background: var(--light);
+  height: 100vh;
+  width: 100vh;
+  overflow: hidden;
 }
 
 button {
