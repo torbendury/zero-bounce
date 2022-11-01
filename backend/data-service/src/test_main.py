@@ -1,7 +1,7 @@
 from fastapi.testclient import TestClient
 
 from .main import app
-from .mock import archive
+from .mock import archive, character
 
 client = TestClient(app)
 
@@ -50,3 +50,9 @@ def test_read_category_entry_entry_no_exist():
     assert response.json() == {
         "error": "The specified category or entry id does not exist"
     }
+
+
+def test_read_character():
+    response = client.get("/character")
+    assert response.status_code == 200
+    assert response.json() == {"character": character.mock_character}

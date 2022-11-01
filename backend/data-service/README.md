@@ -48,6 +48,10 @@ Start the server
   uvicorn.exe main:app --reload
 ```
 
+## API Documentation
+
+The FastAPI service ships with API docs included. When you started the service locally, you can grab them at [localhost:8000/docs](http://localhost:8000/docs)
+
 ## Running Tests
 
 ### Unit Tests
@@ -58,6 +62,45 @@ To install testing dependencies and run tests:
   pip install -r test-requirements.txt
 
   python -m pytest ./
+```
+
+#### Test Coverage
+
+For measuring test coverage, we use the `coverage` package which can also be installed from the `test-requirements.txt` via `pip`.
+
+To measure coverage, run:
+
+```bash
+  cd src/
+  coverage run -m pytest ./
+  coverage report -m
+```
+
+The output will look something like this:
+
+```bash
+(venv) PS C:\Users\XXXXXXXXXX\zero-bounce\backend\data-service\src> coverage run -m pytest ./
+================================================================================================ test session starts ================================================================================================ 
+platform win32 -- Python 3.11.0, pytest-7.2.0, pluggy-1.0.0
+rootdir: C:\Users\Torben Dury\Desktop\Tech\Projekte\zero-bounce\backend\data-service\src
+plugins: anyio-3.6.2
+collected 7 items                                                                                                                                                                                                     
+
+test_main.py .......                                                                                                                                                                                           [100%] 
+
+================================================================================================= 7 passed in 0.40s ================================================================================================= 
+(venv) PS C:\Users\XXXXXXXXXXX\zero-bounce\backend\data-service\src> coverage report -m       
+Name                  Stmts   Miss  Cover   Missing
+---------------------------------------------------
+__init__.py               0      0   100%
+main.py                   8      0   100%
+mock\__init__.py          0      0   100%
+mock\archive.py           8      0   100%
+routers\__init__.py       0      0   100%
+routers\archive.py       22      0   100%
+test_main.py             32      0   100%
+---------------------------------------------------
+TOTAL                    70      0   100%
 ```
 
 ## Build
