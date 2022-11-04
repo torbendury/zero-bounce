@@ -34,10 +34,13 @@ Go to the project directory:
 Create a virtual Python environment + install dependencies
 
 ```bash
+  # if necessary install virtualenv
+  pip install virtualenv
   python -m virtualenv venv
   # on Windows:
-  venv/scripts/activate.ps1
-  pip install -r requirements.txt
+  venv/scripts/activate.ps1 
+  # if venv/scripts/activate.ps1 does not work, you might need to use venv/scripts/activate.bat
+  pip install -r ../requirements.txt
 ```
 
 Start the server

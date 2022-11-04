@@ -72,3 +72,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.hbox {
+  display: flex;
+}
+
+.vbox {
+  display: flex;
+  flex-direction: column;
+}

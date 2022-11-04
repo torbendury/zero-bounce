@@ -32,8 +32,8 @@ import Sidebar from "./components/Sidebar.vue"
 body {
   background: var(--light);
   height: 100vh;
-  width: 100vh;
-  overflow: hidden;
+  max-height: 100vh;
+  // overflow: hidden;
 }
 
 button {
