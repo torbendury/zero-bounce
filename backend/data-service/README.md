@@ -55,6 +55,17 @@ Start the server
 
 The FastAPI service ships with API docs included. When you started the service locally, you can grab them at [localhost:8000/docs](http://localhost:8000/docs)
 
+### Available APIs
+
+The `data-service` is right now intended to retrieve data for:
+
+- The character that you are playing
+- The archive data you have access to
+- The map data you have access to
+- A general overview (tbd)
+
+The service is structured with multiple URL prefixes derived from the tasks they perform.
+
 ## Running Tests
 
 ### Unit Tests
