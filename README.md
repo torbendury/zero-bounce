@@ -8,7 +8,7 @@
 
 - [TobiStilgenbauer](https://github.com/TobiStilgenbauer)
 - [torbendury](https://github.com/torbendury)
-- [daweedkob](https://github.com/daweedkob)
+- [maxopaul](https://github.com/maxopaul)
 
 ## Code
 
