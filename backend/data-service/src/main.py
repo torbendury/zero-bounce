@@ -4,7 +4,11 @@ from routers import archive, character
 from mock import archive as archiveMock
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI()
+app = FastAPI(
+    title="data-service",
+    version="0.0.1",
+    contact={"name": "Torben Dury", "url": "https://github.com/torbendury/zero-bounce"},
+)
 
 app.add_middleware(
     CORSMiddleware,
