@@ -170,3 +170,7 @@ The source code is structured as following:
 ├── requirements.txt      # pip packages which can be installed via `pip install -r requirements.txt`
 └── test-requirements.txt # pip packages required for running tests
 ```
+
+## Database references
+
+![SQL DB](docs/db.png)
