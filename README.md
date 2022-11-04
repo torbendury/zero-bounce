@@ -6,6 +6,9 @@
 
 ## Authors & Contributors
 
+- [TobiStilgenbauer](https://github.com/TobiStilgenbauer)
+- [torbendury](https://github.com/torbendury)
+
 ## Code
 
 ### Running locally
