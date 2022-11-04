@@ -30,3 +30,40 @@ mock_categories = [
     {"id": 5, "name": "event", "data": mock_events},
     {"id": 6, "name": "weapon", "data": mock_weapons},
 ]
+
+# will be in MongoDB later on
+mock_posts = [
+    {
+        "id": 0,
+        "title": "Hurehafe",
+        "category": "place",
+        "content": {
+            "Introduction": [
+                {
+                    "visible": "true",
+                    "text": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                },
+                {
+                    "visible": "false",
+                    "text": "Lorem ipsum dolores, sit amet consectetur adispiercing elitepartner.",
+                },
+            ],
+            "History": [
+                {
+                    "visible": "true",
+                    "text": "apwoidmpwaoidmwapiapdmipwaodmpowaidmpoamipowamidpawipdmaowd",
+                },
+                {
+                    "visible": "false",
+                    "text": "adwpidpmwiaidpwadmwpoaidmpowdpoadaiwdomwadpimpodwaidmpoawidpowaimdpowamdpowmowaimdwpamdap",
+                },
+            ],
+        },
+    }
+]
+
+# for content in post[0].content:
+#   if content.visible == true:
+#       hübsche.js.kacke.zum.presente
+#   else:
+#       versteggeld
