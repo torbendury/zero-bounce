@@ -2,23 +2,34 @@
     <div id="show-post">
         <div class="post-complete">
             <div class="post-meta">
-                <h1>{{this.$parent.selectedEntry.title}}</h1>
+                <h1>{{this.$parent.selectedEntry.name}}</h1>
                 <h2>Referenced in</h2>
             </div>
             <div class="post-entries">
-                <h1>{{this.$parent.selectedEntry.title}}</h1>
-                <div v-for="postCategory in this.$parent.postCategories" :key="postCategory.id">
-                    <div v-if="postCategory.entryId === this.$parent.selectedEntry.id">
-                        <h2>{{postCategory.title}}</h2>
-                        <div v-for="post in this.$parent.posts" :key="post.id">
-                            <p v-if="post.postCategoryId === postCategory.id">{{post.text}}<br><br></p>
-                        </div>
+                <h1>{{this.$parent.selectedEntry.name}}</h1>
+                <div 
+                    v-for="postCategory in this.$parent.postCategories.filter(postCategory => postCategory.entryId == this.$parent.selectedEntry.id)"
+                    :key="postCategory.id"
+                >
+                    <h2>{{postCategory.title}}</h2>
+                    <!-- @todo Add Button to edit (&& delete) existing Posts -->
+                    <div 
+                        v-for="post in this.$parent.posts.filter(post => post.postCategoryId == postCategory.id)" 
+                        :key="post.id"
+                    >
+                        <p>{{post.text}}<br><br></p>
+                        <!-- @todo Add Button to edit (&& delete) existing Posts -->
                     </div>
                 </div>
+                <!-- @todo add button to add new Posts -> Opening the new Form needed -->
             </div>
-            <div class="post-scroll vbox">
-                <div v-for="postCategory in this.$parent.postCategories" :key="postCategory.id" class="vbox">
-                    <div v-if="postCategory.entryId === this.$parent.selectedEntry.id" class="scroll-indicator">
+            <div class="vbox">
+                <div 
+                    v-for="postCategory in this.$parent.postCategories.filter(postCategory => postCategory.entryId == this.$parent.selectedEntry.id)" 
+                    :key="postCategory.id" 
+                    class="post-scroll vbox"
+                >
+                    <div class="scroll-indicator">
                         <p>{{postCategory.title}}</p>
                     </div>
                 </div>
@@ -69,22 +80,5 @@
         margin-left: 1rem;
         align-items: center;
         display: flex;
-    }
-
-    /* width */
-    ::-webkit-scrollbar {
-        width: 0.5rem;
-    }
-
-    /* Track */
-    ::-webkit-scrollbar-track {
-        background-color: var(--dark); 
-        border-radius: 10px;
-    }
- 
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-        background: var(--grey); 
-        border-radius: 10px;
     }
 </style>

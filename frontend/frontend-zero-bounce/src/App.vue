@@ -13,10 +13,21 @@ import Sidebar from "./components/Sidebar.vue"
 :root {
   --primary: #51B1E8;
   --primary-alt: #308abe;
+
   --grey: #64748b;
+
   --dark: #1F2029;
+
   --dark-alt: #181922;
+
   --light: #f1f5f9;
+
+  // Button color
+  --button-default: #262833;
+  --button-hover: #101115;
+  --button-clicked: #0E0F12;
+
+  
   --sidebar-width: 300px;
 
   background-color: var(--dark-alt);
@@ -44,6 +55,10 @@ button {
   background: none;
 }
 
+.hidden {
+    display: none;
+  }
+
 .app {
   display: flex;
 
@@ -55,5 +70,17 @@ button {
       padding-left: 6rem;
     }
   }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 1.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+    border: 0.5rem solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 20px;
+    background-color:  var(--dark);
 }
 </style>
