@@ -66,6 +66,34 @@ The `data-service` is right now intended to retrieve data for:
 
 The service is structured with multiple URL prefixes derived from the tasks they perform.
 
+#### GET categories
+
+Retrieve all categories:
+
+```http
+  GET /archive/categories
+```
+
+Retrieve one category by ID:
+
+```http
+  GET /archive/categories/<id>
+```
+
+#### GET entries
+
+Retrieve all entries of one category by ID:
+
+```http
+  GET /archive/categories/<id>/entries
+```
+
+Retrieve one entry of one category by ID:
+
+```http
+  GET /archive/categories/<cat_id>/entries/<entry_id>
+```
+
 ## Running Tests
 
 ### Unit Tests
@@ -142,3 +170,7 @@ The source code is structured as following:
 ├── requirements.txt      # pip packages which can be installed via `pip install -r requirements.txt`
 └── test-requirements.txt # pip packages required for running tests
 ```
+
+## Database references
+
+![SQL DB](docs/db.png)
