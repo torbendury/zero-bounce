@@ -3,6 +3,9 @@ FROM python:3.11.0-slim-bullseye as base
 
 WORKDIR /app
 
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
 RUN apt update && apt upgrade -y
 
 # needed for psycopg2 because it includes `pg_config` executable
