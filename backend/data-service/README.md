@@ -66,33 +66,7 @@ The `data-service` is right now intended to retrieve data for:
 
 The service is structured with multiple URL prefixes derived from the tasks they perform.
 
-#### GET categories
-
-Retrieve all categories:
-
-```http
-  GET /archive/categories
-```
-
-Retrieve one category by ID:
-
-```http
-  GET /archive/categories/<id>
-```
-
-#### GET entries
-
-Retrieve all entries of one category by ID:
-
-```http
-  GET /archive/categories/<id>/entries
-```
-
-Retrieve one entry of one category by ID:
-
-```http
-  GET /archive/categories/<cat_id>/entries/<entry_id>
-```
+**If you want the latest documentation about available APIs - and, most importantly, the usage guide for them, start up the service with the [docker-compose](../../hacks/docker-compose/docker-compose.yml) file and type [http://localhost:8080/docs](http://localhost:8080/docs) into your browser.**
 
 ## Running Tests
 
