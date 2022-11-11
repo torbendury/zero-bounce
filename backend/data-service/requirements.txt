@@ -2,3 +2,5 @@
 # production service is not going to need [all], instead we will install components separately
 fastapi[all]
 black
+sqlalchemy
+psycopg2

@@ -61,9 +61,3 @@ mock_posts = [
         },
     }
 ]
-
-# for content in post[0].content:
-#   if content.visible == true:
-#       hübsche.js.kacke.zum.presente
-#   else:
-#       versteggeld

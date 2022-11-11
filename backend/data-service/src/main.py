@@ -1,8 +1,13 @@
 import uuid
 from fastapi import FastAPI, Response, status
 from routers import archive, character
-from mock import archive as archiveMock
+from database import models
+import database.database
+
+# from mock import archive as archiveMock
 from fastapi.middleware.cors import CORSMiddleware
+
+models.Base.metadata.create_all(bind=database.database.engine)
 
 app = FastAPI(
     title="data-service",

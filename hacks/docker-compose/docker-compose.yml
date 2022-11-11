@@ -1,0 +1,51 @@
+version: '3.9'
+
+services:
+  data-service:
+    ports:
+      - 8080:8080
+    environment:
+      POSTGRES_DATABASE_CONNECTION_STRING: postgresql://postgres:changeme@postgres:5432/postgres
+    image: "zero-bounce/data-service"
+    depends_on:
+      - mongodb
+      - postgres
+    build:
+      context: ../../backend/data-service/
+      dockerfile: ../../ci/Dockerfile_data-service
+
+  # frontend:
+  #   ports:
+  #     - 5173:5173
+  #   image: "zero-bounce/frontend"
+  #   depends_on:
+  #     - data-service
+
+  # mongodb:
+  #   image: "mongo"
+  #   environment:
+  #     MONGODB_INITDB_ROOT_USERNAME: root
+  #     MONGODB_INITDB_ROOT_PASSWORD: rootpassword
+  #   ports:
+  #     - 27017:27017
+  #   volumes:
+  #     - mongodb:/data/db
+
+  postgres:
+    image: "postgres"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: changeme
+      PGDATA: "/data/postgres"
+    volumes:
+      - postgres:/data/postgres
+      # the official postgres image allows us to place SQL files in that folder
+      # the first time the service starts, it will import and execute those SQL files
+      #- ./sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      #- ./sql/fill_tables.sql:/docker-entrypoint-initdb.d/fill_tables.sql
+    ports:
+      - 6432:5432
+
+volumes:
+  mongodb:
+  postgres:

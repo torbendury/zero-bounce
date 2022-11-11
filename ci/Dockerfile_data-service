@@ -3,13 +3,16 @@ FROM python:3.11.0-slim-bullseye as base
 
 WORKDIR /app
 
+RUN apt update && apt upgrade -y
+
+# needed for psycopg2 because it includes `pg_config` executable
+RUN apt install -y libpq-dev gcc
+
 COPY ./requirements.txt /app/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 # Do those above steps first, as they will not change often. This will dramatically improve build time.
 # Below, we're copying our code (which changes on every build) into the container as well as running package updates.
-
-RUN apt update && apt upgrade -y
 
 COPY ./src/ /app/
 
