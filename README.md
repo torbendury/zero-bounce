@@ -18,6 +18,14 @@ In some places our decision may not be the best possible technically - but it wa
 
 ## Repository structure
 
+- `backend/` holds all application logic for the `data-service`.
+  - The service is a RESTful API written in Python with FastAPI for HTTP handling, SQLAlchemy for database ORM actions and Pydantic for API schema validation.
+- `ci/` holds files, configurations, ... to build the separate services.
+- `docs/` hold several files that are more some notes than actual documentation of the project.
+- `frontend/` holds the application logic for the web-applications' frontend.
+  - The service is written in VueJS.
+- `hacks/` include several files that are used for local testing, development and other stuff that will not be baked into a production environment.
+
 ## Authors & Contributors
 
 - [TobiStilgenbauer](https://github.com/TobiStilgenbauer)
@@ -33,6 +41,10 @@ In some places our decision may not be the best possible technically - but it wa
 ### Building remote
 
 ### Contributions
+
+Contributions are **always** welcome! Just hit up on one of the [authors](#authors--contributors) or open a GitHub issue if you would like to get in touch.
+
+You might also consider reading the [contribution guidelines](CONTRIBUTING.md) that also include a COC.
 
 #### Adding features
 
