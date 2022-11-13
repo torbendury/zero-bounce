@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Response, status, Depends, HTTPException
 from sqlalchemy.orm import Session
-import schemas
-from crud import archive
-from database import database
+import core.schemas.schema as schemas
+from v1.crud import archive
+from core import database
 
 router = APIRouter()
 
@@ -12,6 +12,7 @@ router = APIRouter()
 @router.get("/categories", status_code=200, response_model=list[schemas.Category])
 async def read_categories(skip: int = 0, limit: int = 100, db: Session = Depends(database.get_db)):
     db_categories = archive.get_categories(db=db, skip=skip, limit=limit)
+    print(db_categories)
     return db_categories
 
 
@@ -25,7 +26,8 @@ async def read_category(category_id: int, response: Response, db: Session = Depe
 
 @router.post("/categories/", response_model=schemas.Category)
 async def create_category(category: schemas.CategoryCreate, db: Session = Depends(database.get_db)):
-    return archive.create_category(db=db, category=category)
+    db_category = archive.create_category(db=db, category=category)
+    return db_category
 
 
 # ENTRIES

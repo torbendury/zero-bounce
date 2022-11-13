@@ -1,13 +1,13 @@
-import uuid
-from fastapi import FastAPI, Response, status
-from routers import archive, character
-from database import models
-import database.database
+from fastapi import FastAPI, status, Request
+from fastapi.responses import RedirectResponse
+from v1.routers import archive, character
+from core import database
+
 
 # from mock import archive as archiveMock
 from fastapi.middleware.cors import CORSMiddleware
 
-models.Base.metadata.create_all(bind=database.database.engine)
+database.Base.metadata.create_all(bind=database.engine)
 
 app = FastAPI(
     title="data-service",
@@ -27,6 +27,6 @@ app.include_router(archive.router, prefix="/archive", tags=["archive"])
 app.include_router(character.router, prefix="/character", tags=["character"])
 
 
-@app.get("/", status_code=status.HTTP_404_NOT_FOUND)
-async def root(response: Response):
-    return {"error": "Not found"}
+@app.get("/", status_code=status.HTTP_307_TEMPORARY_REDIRECT, response_class=RedirectResponse)
+async def root(request: Request):
+    return f"{str(request.url)}docs"

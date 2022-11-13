@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Response, status
-from mock import character
+from v1.mock import character
 
 router = APIRouter()
 
