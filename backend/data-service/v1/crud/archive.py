@@ -23,6 +23,10 @@ def get_category(db: Session, category_id: int):
     return db.query(models.Categories).filter(models.Categories.id == category_id).first()
 
 
+def get_category_by_name(db: Session, category_name: str):
+    return db.query(models.Categories).filter(models.Categories.name == category_name).first()
+
+
 def create_category(db: Session, category: schemas.CategoryCreate):
     db_category = models.Categories(name=category.name)
     db.add(db_category)
