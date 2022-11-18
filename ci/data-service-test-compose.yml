@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+
+  data-service:
+    ports:
+      - 8181:8181
+    environment:
+      DB_USER: postgres
+      DB_PASSWORD: changeme
+      DB_NAME: postgres
+      DB_HOST: postgres:5432
+    image: "zero-bounce/data-service-ci"
+    depends_on:
+      - postgres
+    build:
+      context: ../backend/data-service/
+      dockerfile: ../../ci/Dockerfile_data-service-test
+
+  postgres:
+    image: "postgres"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: changeme
+      PGDATA: "/data/postgres"
+    volumes:
+      - postgres-test:/data/postgres
+      # the official postgres image allows us to place SQL files in that folder
+      # the first time the service starts, it will import and execute those SQL files
+      #- ./sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      #- ./sql/fill_tables.sql:/docker-entrypoint-initdb.d/fill_tables.sql
+    ports:
+      - 6432:5432
+
+volumes:
+  postgres-test:

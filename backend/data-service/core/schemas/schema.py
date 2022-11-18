@@ -17,6 +17,14 @@ class CategoryCreate(CategoryBase):
     pass
 
 
+class CategoryDelete(CategoryBase):
+    pass
+
+
+class CategoryUpdate(CategoryBase):
+    pass
+
+
 class Category(CategoryBase):
     id: int
     # Pydantic's orm_mode will tell the Pydantic model to read the data even if it is not a dict,
@@ -33,6 +41,10 @@ class EntryBase(BaseModel):
 
 
 class EntryCreate(EntryBase):
+    pass
+
+
+class EntryUpdate(EntryBase):
     pass
 
 

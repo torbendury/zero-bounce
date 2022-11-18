@@ -13,7 +13,8 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
 
-def get_db():
+def get_db():  # pragma: no cover
+    # yielding a database session. monkey-patched for unit and integration tests.
     db = SessionLocal()
     try:
         yield db

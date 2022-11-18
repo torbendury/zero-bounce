@@ -1,0 +1,27 @@
+# Lightweight debian based Python 3.11 base image
+FROM python:3.11.0-slim-bullseye as base
+
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+RUN apt update && apt upgrade -y
+
+# needed for psycopg2 because it includes `pg_config` executable
+RUN apt install -y libpq-dev gcc
+
+COPY ./requirements.txt /app/requirements.txt
+
+COPY ./tests/test-requirements.txt /app/test-requirements.txt
+
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /app/test-requirements.txt
+# Do those above steps first, as they will not change often. This will dramatically improve build time.
+# Below, we're copying our code (which changes on every build) into the container.
+
+COPY ./ /app/
+
+CMD ["/bin/bash", "-c", "coverage run -m pytest tests/; coverage report --omit='tests/*' -m"]
+
+# CMD ["coverage", "run", "-m", "pytest", "tests/"]

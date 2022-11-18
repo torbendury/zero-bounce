@@ -11,7 +11,9 @@ Uses [FastAPI](https://fastapi.tiangolo.com/).
 
 ## Run Locally
 
-**UPDATE**: It is strongly recommended to run the application in a containerized way so it can start up with all its dependencies much easier. See [docker-compose](../hacks/docker-compose/README.md) for more about this. If you know the drills and have a separate DB ready on your machine, go on here.
+**UPDATE**: It is **strongly recommended** to run the application in a containerized way so it can start up with all its dependencies much easier. See [docker-compose](../hacks/docker-compose/README.md) for more about this.
+
+If you **know the drills** and have a **separate DB ready** on your machine, go on here.
 
 To run the project locally, make sure you have Python 3.11 installed. If you don't, get it [here](https://www.python.org/downloads/).
 
@@ -72,13 +74,13 @@ The service is structured with multiple URL prefixes derived from the tasks they
 
 ## Running Tests
 
-### Unit Tests
+### Unit Tests and Test Coverage
 
-Under construction to be ran inside a container with all the dependencies (databases, mainly).
+Unit tests including test coverage reports are fully containerized. For now, they can be called from a PowerShell script (bash script TODO) [here](../ci/data-service.ps1).
 
-#### Test Coverage
+If you want to run the unit tests and test coverage from a Linux machine before a bash script resides there, copy-paste the commands from inside the script since `docker compose` is used.
 
-Under construction to be ran inside a container with all the dependencies (databases, mainly).
+The tests run against the FastAPI application which is connected to a PostgreSQL. By running fixtures before and after each test, the database is always in a clear and concise state.
 
 ## Build
 

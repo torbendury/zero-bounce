@@ -3,8 +3,6 @@ from fastapi.responses import RedirectResponse
 from v1.routers import archive, character
 from core import database
 
-
-# from mock import archive as archiveMock
 from fastapi.middleware.cors import CORSMiddleware
 
 database.Base.metadata.create_all(bind=database.engine)
@@ -15,6 +13,7 @@ app = FastAPI(
     contact={"name": "Torben Dury", "url": "https://github.com/torbendury/zero-bounce"},
 )
 
+# Only for development purposes. Needs more strict CORS settings later.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

@@ -21,6 +21,6 @@ class Entries(Base):
     id = Column(Integer, primary_key=True, index=True, nullable=False)
     category_id = Column(Integer, ForeignKey("categories.id"))
     visible_to_player = Column(Boolean, default=False, nullable=False)
-    name = Column(String, index=True, nullable=False, unique=True)
+    name = Column(String, index=True, nullable=False)
 
     category = relationship("Categories", back_populates="entries")
