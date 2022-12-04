@@ -52,6 +52,14 @@ def test_create_category_already_exist(categories, client: TestClient):
     assert response.json() == {"detail": "Category already exists"}
 
 
+def test_fuzz_create_category(client: TestClient):
+    for i in range(0, 100):
+        fuzz_str = fuzzer()
+        print(fuzz_str)
+        response = client.post(f"/archive/categories/", json={"name": fuzz_str})
+        assert response.status_code < 500
+
+
 def test_create_category(categories, client: TestClient):
     response = client.post("/archive/categories/", json={"name": "testcat"})
     assert response.status_code == 201
@@ -84,6 +92,14 @@ def test_update_category(categories, client: TestClient):
     response = client.put("/archive/categories/1", json={"name": "newplace"})
     assert response.status_code == 200
     assert response.json() == {"id": 1, "name": "newplace"}
+
+
+def test_fuzz_update_category(categories, client: TestClient):
+    for i in range(0, 100):
+        fuzz_str = fuzzer()
+        print(fuzz_str)
+        response = client.put("/archive/categories/1", json={"name": fuzz_str})
+        assert response.status_code < 500
 
 
 def test_update_category_no_exist(categories, client: TestClient):
