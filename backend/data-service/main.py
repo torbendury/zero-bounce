@@ -1,5 +1,7 @@
+import io
+import yaml
 from fastapi import FastAPI, status, Request
-from fastapi.responses import RedirectResponse
+from fastapi.responses import RedirectResponse, Response
 from v1.routers import archive, character
 from core import database
 
@@ -29,3 +31,11 @@ app.include_router(character.router, prefix="/character", tags=["character"])
 @app.get("/", status_code=status.HTTP_307_TEMPORARY_REDIRECT, response_class=RedirectResponse)
 async def root(request: Request):
     return f"{str(request.url)}docs"
+
+
+@app.get("/openapi.yaml", status_code=status.HTTP_200_OK)
+async def openapi_yaml(request: Request):
+    openapi_json = app.openapi()
+    yaml_s = io.StringIO()
+    yaml.dump(openapi_json, yaml_s)
+    return Response(content="---\n" + yaml_s.getvalue(), media_type="text/yaml")

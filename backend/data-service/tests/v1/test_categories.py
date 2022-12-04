@@ -1,5 +1,6 @@
 from v1.crud.archive import get_categories
 from fastapi.testclient import TestClient
+from tests.util.fuzzing import fuzzer
 
 
 def test_create_categories(db, client: TestClient):
@@ -12,9 +13,25 @@ def test_create_categories(db, client: TestClient):
     assert len(db_categories) == 2
 
 
+def test_fuzz_create_categories(db, client: TestClient):
+    for i in range(0, 100):
+        fuzz_str = fuzzer()
+        print(fuzz_str)
+        response = client.post("/archive/categories", json={"name": fuzz_str})
+        assert response.status_code < 500
+
+
 def test_list_categories(categories, client: TestClient):
     response = client.get("/archive/categories/")
     assert len(response.json()) == 2
+
+
+def test_fuzz_list_category(categories, client: TestClient):
+    for i in range(0, 100):
+        fuzz_str = fuzzer()
+        print(fuzz_str)
+        response = client.get(f"/archive/categories/{fuzz_str}")
+        assert response.status_code < 500
 
 
 def test_list_category(categories, client: TestClient):

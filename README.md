@@ -34,7 +34,11 @@ In some places our decision may not be the best possible technically - but it wa
 
 ## Code
 
+Here are some helpful informations on how to run, build and operate the codebase and the resulting software artifacts.
+
 ### Running locally
+
+The easiest way to run the project in its latest state locally is to use [`docker-compose`](hacks/docker-compose/docker-compose.yml). This file will be enriched with every new joined service and also with some data to test on.
 
 ### Building locally
 
