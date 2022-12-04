@@ -46,7 +46,7 @@ The easiest way to run the project in its latest state locally is to use [`docke
 
 ### Contributions
 
-Contributions are **always** welcome! Just hit up on one of the [authors](#authors--contributors) or open a GitHub issue if you would like to get in touch.
+Contributions are **always** welcome! Hit up on one of the [authors](#authors--contributors) or open a GitHub issue if you would like to get in touch.
 
 You might also consider reading the [contribution guidelines](CONTRIBUTING.md) that also include a COC.
 
